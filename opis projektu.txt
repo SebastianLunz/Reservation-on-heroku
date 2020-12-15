@@ -1,0 +1,71 @@
+System rezerwacji usług w salonie kosmetycznym
+-> usługi o różnym czasie trwania
+-> rezerwacja slotu w kalendarzu
+-> kod rezerwacyjny
+
+
+Projekt polega na utworzeniu systemu rezerwacji wizyt w salonie kosmetycznym na różne
+roszje usług. Usługi mogą mieć różny czas trwania, a rezerwacje nie powinny się pokrywać.
+Usługi można będzie rezerwować na danego pracownika (lub dowolnego pracownika).
+
+Usługi wymagają potwierdzenia przez salon. (-> statusy rezerwacji)
+
+Pracownicy salonu mają możliwość podglądu kalendarza.
+
+Rezerwacja wymaga podania danych (imię, nazwisko, telefon, email)
+i potwierdzenia regulaminu oraz polityki prywatności, generowany jest kod rezerwacji.
+
+Widok rezerwacji pokazuje uprzoszczony kalendarz dla danego pracownika
+(widać, które terminy są wolne)kalendarza.
+
+
+======================
+MODELE
+======================
+
+1. Pracownik (korzystam z modelu 'django.auth.models.User')
+
+2. Usługa
+- nazwa
+- opis
+- czas trwania
+- koszt
+- przypisanie pracowników (którzy mogą wykonywać usługę) M2M
+
+3. Rezerwacja (na usługę, do pracownika, termin)
+- imię
+- nazwisko
+- telefon
+- email
+- usługa
+- pracownik
+- termin (timestamp / datatime)
+- czas trwania
+- koszt
+- status rezerwacji
+- potwierdzenia regulaminu, polityki prywatności
+- kod rezerwacji
+
+
+===============
+WIDOKI
+===============
+
+1. Wprowadzanie danych rezerwacji
+- widoczne wolne terminy
+- wybór usługi
+- wybór pracownika
+- wybór terminu
+
+
+2. Drugi ekarn rezerwacji
+- potwierdzenie regulaminu, polityki prywatności
+- dane rezerwacji (imię, nazwisko, email, telefon)
+
+3. Potwiedzenie rezerwacji
+- informacje o rezerwacji (data, czas, koszt, pracownik, usługa)
+- kod rezerwacji
+
+4. logowanie pracowników
+
+5. Widok kalendarza pracowniczego (warunkowo: jeżeli superuser to może przegłądać czyjeś kalendarze)

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalendarz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'bookings/modern-normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'bookings/main.css' %}">
+</head>
+<body>
+    <div class="main-bg"></div>
+    <div class="container">
+        <h1>Colours Beauty & Spa</h1>
+        <div class="wrapper">
+            <h2>Nowa rezerwacja</h2>
+            <div class="errors">
+                {{ form2.errors }}
+            </div>
+            <div class="errors">
+                {{ form.errors }}
+            </div>
+            <div class="add-wrapper">
+                <div class="add-box">
+                <h4>Wybrałeś</h4>
+                    <dl>
+                        <dt>Data</dt>
+                        <dd>{{ timestamp }}
+                        <dt>Usługa</dt>
+                        <dd>{{ service }}</dd>
+                        <dt>Pracownik</dt>
+                        <dd>{{ employee }}</dd>
+                    </dl>   
+                </div>
+                <div class="add-box">
+                    <h4>Wypełnij formularz rezerwacji</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                        <input type="submit" value="Potwierdź rezerwację" class="book-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

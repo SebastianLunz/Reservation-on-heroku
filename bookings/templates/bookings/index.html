@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalendarz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'bookings/modern-normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'bookings/main.css' %}">
+</head>
+<body>
+    <div class="main-bg"></div>
+    <div class="container">
+        <h1>Colours Beauty & Spa</h1>
+        <div class="wrapper">
+            <h2>Umów wizytę</h2>
+            <div class="content-wrapper">
+                <div class="content-box">
+                    <h3>Wybierz dzień</h3>
+                    <ul class="week-box">
+                    {% for day in week %}
+                        <li class="{% if selected_date == day %}selectedDate{% endif %}">
+                            <a href="{% url 'bookings:index' day.year day.month day.day %}">
+                                {{ day }} {% if day == today %} (dzisiaj){% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="content-box">
+                    <form method="GET" action="{% url 'bookings:add' %}">
+                        <div class="content-table">
+                            <div class="box">
+                                <h4>Wybierz godzinę</h4>
+                                <ul class="day-box">
+                                {% for date, is_reserved in dates.items %}
+                                    <li class="{% if is_reserved %}reserved{% else %}free{% endif %}">
+                                    {% if not is_reserved %}
+                                        <label>
+                                            <input type="radio" name="timestamp" value="{{ date|date:"c" }}" required>&nbsp;&nbsp;&nbsp;
+                                            {{ date|date:"H:i" }}
+                                        </label>
+                                    {% else %}
+                                        {{ date|date:"H:i" }}
+                                    {% endif %}
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="box">
+                                <h4>Wybierz usługę i prcownika</h4>
+                                <h5>Usługa:</h5>  
+                                <select name="service">
+                                    {% for service in services %}
+                                        <option value="{{ service.pk }}">{{ service }}</option>
+                                    {% endfor %}
+                                </select>   
+                                <h5>Pracownik:</h5>  
+                                <select name="employee">
+                                    {% for employee in employees %}
+                                            <option value="{{ employee.pk }}">{{ employee }}</option>
+                                    {% endfor %}
+                                </select>   
+                                <input type="submit" value="Zarezerwuj" class="book-btn">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
