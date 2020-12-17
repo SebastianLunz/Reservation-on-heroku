@@ -10,25 +10,26 @@
     <link rel="stylesheet" href="{% static 'bookings/main.css' %}">
 </head>
 <body>
-    <div class="main-bg"></div>
-    <nav>
-        <ul class="navigation">
-            <li>
-                <a href="{% url 'bookings:index' %}">Strona główna</a>
-            </li>
-            <li>
-                <a href="{% url 'admin:index' %}">Panel administracyjny</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="container">
-        <main>
-            
-            <div class="main-content">
-            <h1>Barberia - Barber Shop</h1>
-                {% block main %}{% endblock %}
-            </div>
-        </main>
+    <div class="main-wrapper">
+        <div class="main-bg"></div>
+        <nav>
+            <ul class="navigation">
+                <li>
+                    <a href="{% url 'bookings:index' %}">Strona główna</a>
+                </li>
+                <li>
+                    <a href="{% url 'admin:index' %}">Panel administracyjny</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <main>
+                <div class="main-content">
+                    <h1>Barberia - Barber Shop</h1>
+                    {% block main %}{% endblock %}
+                </div>
+            </main>   
+        </div>
         <footer>
             Copyright &copy; Sebastian Lunz 2020
         </footer>
