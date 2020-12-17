@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalendarz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'bookings/modern-normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'bookings/main.css' %}">
+</head>
+<body>
+    <div class="main-bg"></div>
+    <nav>
+        <ul class="navigation">
+            <li>
+                <a href="{% url 'bookings:index' %}">Strona główna</a>
+            </li>
+            <li>
+                <a href="{% url 'admin:index' %}">Panel administracyjny</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main>
+            
+            <div class="main-content">
+            <h1>Barberia - Barber Shop</h1>
+                {% block main %}{% endblock %}
+            </div>
+        </main>
+        <footer>
+            Copyright &copy; Sebastian Lunz 2020
+        </footer>
+    </div>
+</body>
+</html>

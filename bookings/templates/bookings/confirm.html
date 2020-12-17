@@ -1,25 +1,13 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Kalendarz</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'bookings/modern-normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'bookings/main.css' %}">
-</head>
-<body>
-    <div class="main-bg"></div>
-    <div class="container">
-        <h1>Colours Beauty & Spa</h1>
-        <div class="wrapper">
-            <h2>Potwierdzenie rezerwacji</h2>
-            <h3>
-                Twój kod rezerwacji:&nbsp;&nbsp;
-                <code>{{ object.code }}</code>
-            </h3>
-        </div>
+
+{% block main %}
+    <h2>Potwierdzenie rezerwacji</h2>
+    <div class="confirm-wrapper">
+        <div class="divider"></div>
+        <h3 class="confirmation-code">
+            Twój kod rezerwacji:&nbsp;&nbsp;
+            <code>{{ object.code }}</code>
+        </h3>
     </div>
-</body>
-</html>
+{% endblock %}
