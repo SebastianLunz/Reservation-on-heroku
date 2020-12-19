@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone, date
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render
@@ -121,7 +122,7 @@ class ConfirmReservation(DeleteView):
     template_name = "bookings/confirm.html"
 
 
-class CalendarView(ListView):
+class CalendarView(LoginRequiredMixin, ListView):
     template_name = "bookings/calendar.html"
 
     def get_queryset(self):

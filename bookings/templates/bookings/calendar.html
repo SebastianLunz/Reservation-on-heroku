@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block main %}
+    
     <h2>Kalendarz usług</h2>
     <div class="content-wrapper">
     <h3>Witaj, {{ user }}</h3>
@@ -12,9 +13,13 @@
                 <th>Pracownik</th>
                 <th>Status</th>
                 <th>Kod rezerwacji</th>
+                <th>Klient</th>
             </tr>
             {% for reservation in object_list %}
                 <tr>
+                    <td>
+                        {{ reservation.code }}
+                    </td>
                     <td>
                         {{ reservation.service }}
                     </td>
@@ -25,13 +30,15 @@
                         {{ reservation.duration }}
                     </td>
                     <td>
-                        {{ reservation.first_name }} {{ reservation.last_name }}
+                        {{ reservation.employee }}
                     </td>
                     <td>
-                        {{ reservation.status }}
+                        {{ reservation.get_status_display }}
                     </td>
                     <td>
-                        {{ reservation.code }}
+                        {{ reservation.first_name }}
+                        {{ reservation.last_name }}
+                        <a href="mailto:{{ reservation.email }}">{{ reservation.email }}</a>
                     </td>
                 </tr>
             {% endfor %}

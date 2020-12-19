@@ -26,7 +26,11 @@
                     <li>
                         <a href="{% url 'bookings:calendar' %}">Kalendarz</a>
                     </li>
-                    
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">Wyloguj się</a>
+                        </li>
+                    {% endif %}
                 </ul>
             <div>
         </nav>
