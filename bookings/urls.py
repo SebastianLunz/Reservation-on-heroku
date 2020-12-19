@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:year>/<int:month>/<int:day>', views.IndexView.as_view(), name="index"),
     path('add/', views.AddReservation.as_view(), name="add"),
     path('confirm/<str:code>/', views.ConfirmReservation.as_view(), name="confirm"),
+    path("kalendarz/", views.CalendarView.as_view(), name="calendar"),
 ]

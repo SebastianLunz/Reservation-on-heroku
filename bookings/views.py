@@ -119,3 +119,15 @@ class ConfirmReservation(DeleteView):
     slug_url_kwarg = "code"
     slug_field = "code"
     template_name = "bookings/confirm.html"
+
+
+class CalendarView(ListView):
+    template_name = "bookings/calendar.html"
+
+    def get_queryset(self):
+        qs = Reservation.objects.order_by("-timestamp")
+
+        if not self.request.user.is_superuser:
+            qs = qs.filter(employee=self.request.user)
+
+        return qs

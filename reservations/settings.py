@@ -139,3 +139,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 SITE_NAME = "Salon kosmetyczny"
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/kalendarz/"
+LOGIN_URL = "/login/"

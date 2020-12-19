@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>Kalendarz usług</h2>
+    <div class="content-wrapper">
+    <h3>Witaj, {{ user }}</h3>
+        <table class="reservation-info">
+            <tr>
+                <th>Usługa</th>
+                <th>Data usługi</th>
+                <th>Czas trwania usługi</th>
+                <th>Pracownik</th>
+                <th>Status</th>
+                <th>Kod rezerwacji</th>
+            </tr>
+            {% for reservation in object_list %}
+                <tr>
+                    <td>
+                        {{ reservation.service }}
+                    </td>
+                    <td>
+                        {{ reservation.timestamp|date:"j M, G:i" }}
+                    </td>
+                    <td>
+                        {{ reservation.duration }}
+                    </td>
+                    <td>
+                        {{ reservation.first_name }} {{ reservation.last_name }}
+                    </td>
+                    <td>
+                        {{ reservation.status }}
+                    </td>
+                    <td>
+                        {{ reservation.code }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+{% endblock %}

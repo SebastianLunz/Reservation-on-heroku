@@ -22,11 +22,12 @@
                 <dd>{{ employee }}</dd>
             </dl>   
         </div>
+        <div class="divider"></div>
         <div class="add-box">
             <h4>Wypełnij formularz rezerwacji</h4>
             <form method="POST">
                 {% csrf_token %}
-                <table>
+                <table class="reservation-form">
                     {{ form.as_table }}
                 </table>
                 <input type="submit" value="Potwierdź rezerwację" class="book-btn">
