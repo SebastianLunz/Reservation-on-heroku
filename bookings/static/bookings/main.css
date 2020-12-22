@@ -32,9 +32,8 @@ h1 {
 
 h2 {
     font-size: 35px;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 h3 {
@@ -43,7 +42,7 @@ h3 {
 
 h4 {
     font-size: 20px;
-    padding: 0 0 15px 0;
+    padding: 10px 0;
 }
 
 h5 {
@@ -122,7 +121,7 @@ footer {
     color: #232323;
 }
 
-input.book-btn {
+.book-btn, .book-btn-main {
     width: 100%;
     margin: 30px auto;
     padding: 20px;
@@ -137,10 +136,20 @@ input.book-btn {
     border: 1px solid #000000;
 }
 
-input.book-btn:hover {
-    background-color: #ffffff;
-    border: 1px solid #000000;
-    color: #000000;
+.book-btn:hover, .book-btn-main:hover {
+    border: 1px solid #232323;
+    background-color: #232323;
+    color: #9e9e9e;
+}
+
+.book-btn-main {
+    width: 80%;
+}
+
+.book-btn-main a {
+    color: #ffffff;
+    display: block;
+    width: 100%;
 }
 
 select {
@@ -180,32 +189,48 @@ select {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 0 20px;
     z-index: 99; 
 }
 
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    background-color: #ffffff;
+}
+
+.nav-wrapper .navigation-logo {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-wrapper .navigation-logo img {
+    display: block;
+    width: 100px;
+}
+
+
 .navigation {
-    font-family: 'Barlow', sans-serif;
     background-color: #ffffff;
     margin: 0;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     padding: 30px 0;
-    margin: 0;
-    text-align: center;
+    text-align: right;
 }
 
 .navigation li {
-    display: inline-block;
-    margin: 0 30px 0 0;
-}
-
-.navigation li:last-child {
-    margin: 0;
+    display: inline-block;   
+    margin: 0 15px 0 0;
 }
 
 .navigation li a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     display: block;
     color: #9e9e9e;
     font-family: 'Barlow', sans-serif;
@@ -219,7 +244,7 @@ select {
 
 .logo-main {
     width: 75%;
-    margin: 200px auto 150px auto;
+    margin: 50px auto;
 }
 
 .logo-main img {
@@ -230,7 +255,48 @@ select {
 .main-content {
     width: 100%;
     min-height: 100vh;
-    padding: 0 20px 10px 20px;
+    padding: 50px 20px 10px 20px;
+}
+
+.main-services {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.main-services .simple-service {
+    width: calc(100%/3);
+    padding: 0 30px;
+    border-right: 1px solid #e9e9e9;
+    margin: 0 0 30px 0;
+}
+
+.main-services .simple-service:last-of-type {
+    border: none;
+}
+
+.main-services .simple-service img {
+    display: block;
+    width: 100%;
+    padding: 0 30px; 
+}
+
+.main-services .simple-service h6 {
+    font-size: 14px;
+    margin: 10px 0;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-services .simple-service p {
+    font-size: 20px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 .content-wrapper {
@@ -257,7 +323,7 @@ select {
 
 .content-wrapper .content-box .week-box li {
     margin: 10px 0;
-    border: 1px solid #232323;
+    border: 1px solid #e9e9e9;
 }
 
 .content-wrapper .content-box .week-box li:first-of-type {
@@ -281,7 +347,7 @@ select {
 .content-wrapper .content-box .week-box .selectedDate a {
     font-weight: 500;
     background-color: #232323;
-    color: #ffffff;
+    color: #e9e9e9;
 }
 
 .content-wrapper .content-box .content-table {
@@ -292,19 +358,10 @@ select {
 
 .content-wrapper .content-box .content-table .box {
     width: 100%;
-    padding: 0 15px;
     margin: 15px 0;
     display: flex;
     flex-flow: column;
     align-items: center;
-}
-
-.content-wrapper .content-box .content-table .box:first-of-type {
-    padding-left: 0;
-}
-
-.content-wrapper .content-box .content-table .box:last-of-type {
-    padding-right: 0;
 }
 
 .content-wrapper .content-box .content-table .box .day-box {
@@ -320,14 +377,14 @@ select {
     margin: 0 0 10px 0;
     padding: 0;
     color: #232323;
-    border: 1px solid #232323;
+    border: 1px solid #e9e9e9;
     text-align: center;
     transition: .2s;
 }
 
 .content-wrapper .content-box .content-table .box .day-box li:hover {
     background-color: #232323;
-    color: #ffffff;
+    color: #e9e9e9;
 }
 
 .content-wrapper .content-box .content-table .box .day-box li label {
@@ -337,10 +394,13 @@ select {
 }
 
 .content-wrapper .content-box .content-table .box .day-box li.reserved {
-    color: #585858;
-    background-color: #232323;
-    border: 1px solid #232323;
+    color: #9e9e9e;
+    border: 1px solid #e9e9e9;
     padding: 10px;
+}
+
+.content-wrapper .content-box .content-table .box .day-box li.reserved:hover {
+    background: none;
 }
 
 .add-wrapper {
@@ -388,7 +448,7 @@ select {
 .divider {
     width: 100%;
     height: 1px;
-    background-color: #232323;
+    background-color: #e9e9e9;
     margin: 15px 0;
 }
 
@@ -401,13 +461,9 @@ select {
     padding: 20px 0;
 }
 
-
-
 .reservation-info, .reservation-info th, .reservation-info td {
-    border: 1px solid #000000;
-    border-collapse: collapse;
-    /* text-align: center; */
-    
+    border: 1px solid #e9e9e9;
+    border-collapse: collapse; 
 }
 
 .reservation-info {
@@ -425,9 +481,3 @@ select {
 th, td {
     padding: 10px;
 }
-
-/* table .reservation-form,
-th .reservation-form,
-td .reservation-form {
-    border: none;
-} */

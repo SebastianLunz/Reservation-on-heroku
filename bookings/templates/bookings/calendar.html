@@ -7,12 +7,12 @@
     <h3>Witaj, {{ user }}</h3>
         <table class="reservation-info">
             <tr>
+                <th>Kod rezerwacji</th>
                 <th>Usługa</th>
                 <th>Data usługi</th>
                 <th>Czas trwania usługi</th>
                 <th>Pracownik</th>
                 <th>Status</th>
-                <th>Kod rezerwacji</th>
                 <th>Klient</th>
             </tr>
             {% for reservation in object_list %}

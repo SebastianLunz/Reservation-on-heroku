@@ -4,11 +4,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, DeleteView
+from django.views.generic import ListView, CreateView, DeleteView, TemplateView
 from django.urls import reverse_lazy, reverse
 
 from .forms import BaseReservationForm, ReservationForm
 from .models import Service, Reservation
+
+
+class MainPage(TemplateView):
+    template_name = "bookings/main.html"
 
 
 class IndexView(ListView):

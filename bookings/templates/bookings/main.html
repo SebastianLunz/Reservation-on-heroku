@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    <div class="logo-main">
+        <img src="{% static 'bookings/img/logo.png' %}">
+    </div>
+    <div class="content-wrapper">
+        <div class="main-services">
+            <div class="simple-service">
+                <img src="{% static 'bookings/img/scissors.png' %}" alt="Strzyżenie">
+                <h6>Strzyżenie</h6>
+                <p>50,00 PLN</p>
+            </div>
+            <div class="simple-service">
+                <img src="{% static 'bookings/img/razor.png' %}" alt="Golenie">
+                <h6>Golenie</h6>
+                <p>50,00 PLN</p>
+            </div>
+            <div class="simple-service">
+                <img src="{% static 'bookings/img/comb.png' %}" alt="Czesanie">
+                <h6>Czesanie</h6>
+                <p>35,00 PLN</p>
+            </div>
+        </div>
+        <button class="book-btn-main">
+            <a href="{% url 'bookings:index' %}">Zarezerwuj</a>
+        </button>
+    </div>
+{% endblock %}

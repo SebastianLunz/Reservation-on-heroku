@@ -16,30 +16,36 @@
         <div class="main-bg"></div>
         <nav class="menu">
             <div class="container">
-                <ul class="navigation">
-                    <li>
-                        <a href="{% url 'bookings:index' %}">Strona główna</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'admin:index' %}">Panel administracyjny</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'bookings:calendar' %}">Kalendarz</a>
-                    </li>
-                    {% if user.is_authenticated %}
+                <div class="nav-wrapper">
+                    <div class="navigation-logo">
+                        <img src="{% static 'bookings/img/logo.png' %}">
+                    </div>
+                    <ul class="navigation">
                         <li>
-                            <a href="{% url 'logout' %}">Wyloguj się</a>
+                            <a href="{% url 'bookings:main_page' %}">Strona główna</a>
                         </li>
-                    {% endif %}
-                </ul>
+                        <li>
+                            <a href="{% url 'bookings:index' %}">Rezerwacja</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'admin:index' %}">Panel administracyjny</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'bookings:calendar' %}">Kalendarz</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'logout' %}">Wyloguj się</a>
+                            </li>
+                        {% endif %}
+                    </ul> 
+                </div>
             <div>
         </nav>
         <main>
             <div class="container">
                 <div class="main-content">
-                    <div class="logo-main">
-                        <img src="{% static 'bookings/img/logo.png' %}">
-                    </div>
+                    
                     {% block main %}{% endblock %}
                 </div>
             </div>

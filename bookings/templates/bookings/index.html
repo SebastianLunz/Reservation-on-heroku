@@ -8,7 +8,7 @@
         <div class="divider"></div>
         <div class="content-box">
             
-            <h3>Wybierz dzień</h3>
+            <h4>Wybierz dzień</h4>
             <ul class="week-box">
             {% for day in week %}
                 <li class="{% if selected_date == day %}selectedDate{% endif %}">
@@ -40,11 +40,11 @@
                             <li class="{% if is_reserved %}reserved{% else %}free{% endif %}">
                             {% if not is_reserved %}
                                 <label>
-                                    <input type="radio" name="timestamp" value="{{ date|date:"c" }}" required>&nbsp;
-                                    {{ date|date:"G:i" }}
+                                    <input type="radio" name="timestamp" value="{{ date|date:"c" }}" required>&nbsp;{{ date|date:"G:i" }}
                                 </label>
                             {% else %}
-                                {{ date|date:"G:i" }}
+                                {% comment %} {{ date|date:"G:i" }} {% endcomment %}
+                                termin niedostępny
                             {% endif %}
                             </li>
                         {% endfor %}
